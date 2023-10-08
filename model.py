@@ -21,7 +21,7 @@ scaler = MinMaxScaler()
 
 df[ ['N','P','K','temperature','humidity','ph','rainfall']] = scaler.fit_transform(df[ ['N','P','K','temperature','humidity','ph','rainfall']])
 
-
+print(df.head())
 
 farmer_Example = {
     'N' : 90,

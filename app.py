@@ -2,9 +2,13 @@
 import streamlit as st 
 import pandas as pd 
 
+from model import top_n_recommendation
+
 df = pd.DataFrame( {
-    'first column': [1,2,3,4],
-    'second column': [10,20,30,40]
+    'crop': top_n_recommendation['label'],
+    'similiarity': top_n_recommendation['similiarity']
 })
 
-df 
+
+
+
