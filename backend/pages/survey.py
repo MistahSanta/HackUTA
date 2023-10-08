@@ -1,7 +1,11 @@
 import streamlit as st 
 from model import recommendCrop
+from nav_page import nav_page
+from streamlit_extras.switch_page_button import switch_page
+from results import getResults
+import time
 
-def surveyDisplay(): 
+def  surveyDisplay(): 
     st.title("Crop Recommendation Predictor")
 
     amountNitrogen = int ( st.number_input("Amount of Nitrogen (kg/ha)", placeholder="Min:0, Max:100") )
@@ -13,7 +17,10 @@ def surveyDisplay():
     amountRainfall = float ( st.number_input("Amount of Rainfall (in mm) received during growing period", placeholder="Min:0, Max:100") )
 
     if st.button("Submit"):
-        st.write("Based off your soil, to maximum yield use: " + str(recommendCrop( amountNitrogen, amountPhos, amountPotas, amountRainfall, avgHumid, avgTemp, pH ))) 
-
+        
+        recommendCrop( amountNitrogen, amountPhos, amountPotas, amountRainfall, avgHumid, avgTemp, pH )
+        getResults()
+        switch_page("results")
+        
 
     

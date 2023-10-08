@@ -1,0 +1,48 @@
+h1 {
+    color: #007700; /* Dark green header color */
+    padding: 20px;
+    font-size: 28px; /* Larger font size */
+  }
+  
+  form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px; /* Adjust the width as needed */
+    margin: 0 auto;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 18px; /* Larger font size for labels */
+  }
+  
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px; /* Larger font size for the dropdown */
+  }
+  
+  .submit-button {
+    text-align: center; /* Center-align the button */
+  }
+  
+  input[type="submit"] {
+    background-color: #007700; /* Dark green button background color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px; /* Larger font size for the button text */
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #005500; /* Dark green button color on hover */
+  }

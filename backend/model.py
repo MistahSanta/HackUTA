@@ -8,7 +8,7 @@ import numpy as np
 
 def recommendCrop(amountNitrogen , amountPhos, amountPotas, amountRainfall, avgHumid, avgTemp, pH):
     # Read the csv data
-    df = pd.read_csv('data/cropData.csv', encoding='latin-1', sep=',')
+    df = pd.read_csv('..//data/cropData.csv', encoding='latin-1', sep=',')
     
     # Get the minimum and maximum parameter of each data 
     max_df = df.max()
@@ -55,4 +55,6 @@ def recommendCrop(amountNitrogen , amountPhos, amountPotas, amountRainfall, avgH
     
     top_n_recommendation = top_n_recommendation[top_n_recommendation['similiarity'] > threshold].head(3)
     
+    with open("bestCrops.txt", "w") as file:
+        file.write( top_n_recommendation.head(1) )
     return top_n_recommendation['label'].to_string(index=False)
