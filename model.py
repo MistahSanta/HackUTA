@@ -15,6 +15,7 @@ def recommendCrop(amountNitrogen , amountPhos, amountPotas, amountRainfall, avgH
     min_df = df.min()
 
     scaler = MinMaxScaler()
+    threshold = 0.90
 
     df[ ['N','P','K','temperature','humidity','ph','rainfall']] = scaler.fit_transform(df[ ['N','P','K','temperature','humidity','ph','rainfall']])
 
@@ -47,6 +48,11 @@ def recommendCrop(amountNitrogen , amountPhos, amountPotas, amountRainfall, avgH
     recommended_crops = df.sort_values(by='similiarity', ascending=False)
 
 
-    top_n_recommendation = recommended_crops[['label', 'similiarity']].head(1)
+    top_n_recommendation = recommended_crops[['label', 'similiarity']]
 
+    
+    top_n_recommendation = top_n_recommendation.drop_duplicates(subset="label", keep='first')
+    
+    top_n_recommendation = top_n_recommendation[top_n_recommendation['similiarity'] > threshold].head(3)
+    
     return top_n_recommendation['label'].to_string(index=False)
